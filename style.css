@@ -1,0 +1,455 @@
+
+/* ===== 1. Variabel ===== */
+:root {
+    --warna-utama: #f193df;
+    --warna-gelap: #1f2937;
+    --warna-terang: #f9fafb;
+    --warna-abu: #6b7280;
+    --radius: 8px;
+    --jarak: 1rem;
+    --lebar-maks: 1100px;
+}
+
+/* ===== 2. Reset dan dasar ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--warna-gelap);
+    background: var(--warna-terang);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--warna-utama);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* ===== 3. Layout umum ===== */
+.kontainer {
+    max-width: var(--lebar-maks);
+    margin: 0 auto;
+    padding: 0 var(--jarak);
+}
+
+section {
+    padding: 3rem 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin-bottom: var(--jarak);
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+/* ===== 4. Komponen tombol ===== */
+.tombol {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--warna-utama);
+    color: #fff;
+    border-radius: var(--radius);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tombol:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+    text-decoration: none;
+}
+
+:root {
+    --warna-utama: #8b5cf6;
+    --jarak: 1rem;
+}
+
+.situs-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #efc6e5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1rem 0;
+}
+
+.kontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.identitas h1 {
+    font-size: 1.4rem;
+    margin: 0 0 0.3rem;
+}
+
+.identitas p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 0.4rem;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: var(--warna-utama);
+}
+
+.menu a.aktif,
+body:has(#tentang:target) .menu a[href="#tentang"],
+body:has(#keahlian:target) .menu a[href="#keahlian"],
+body:has(#galeri:target) .menu a[href="#galeri"],
+body:has(#kontak:target) .menu a[href="#kontak"] {
+    border-bottom: 2px solid var(--warna-utama);
+    color: var(--warna-utama);
+}
+
+@media (max-width: 767px) {
+    .kontainer {
+        padding: 0 1rem;
+    }
+
+    .menu {
+        gap: 0.8rem;
+    }
+
+    .menu a {
+        font-size: 0.9rem;
+    }
+}
+
+.grid-kartu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.kartu {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kartu:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .grid-kartu {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+#galeri img {
+    transition: transform 0.3s ease;
+}
+
+#galeri img:hover {
+    transform: scale(1.05);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Garis pada judul kolom dan isi tabel */
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Warna latar judul kolom */
+th {
+    background-color: #f0b3e7;
+}
+
+/* Jarak caption dari tabel */
+caption {
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+h1 {
+    color: #f5f4f7;
+}
+#tentang img {
+    border-radius: 50%;
+    border: 4px solid #f5f4f7;
+}
+
+
+#galeri .kontainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Judul dan deskripsi memenuhi lebar galeri */
+#galeri h2,
+#galeri .kontainer > p {
+    grid-column: 1 / -1;
+}
+
+/* Mengatur setiap foto */
+#galeri figure {
+    margin: 0;
+    min-width: 0;
+}
+
+/* Mengatur ukuran gambar */
+#galeri img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Efek hover */
+#galeri img:hover {
+    transform: scale(1.05);
+}
+
+/* Caption gambar */
+#galeri figcaption {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Laptop: 4 foto dalam satu baris */
+@media (min-width: 768px) {
+    #galeri .kontainer {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+footer {
+    background-color: #efc6e5;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fefdfd;
+}
+.tabel-bungkus {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabel-bungkus table {
+    min-width: 600px;
+    border-collapse: collapse;}
+/* Tampilan dasar: HP */
+.grid-kartu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* Navbar di HP */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
+/* Tablet: mulai dari 768px */
+@media (min-width: 768px) {
+    .grid-kartu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Laptop: mulai dari 1024px */
+@media (min-width: 1024px) {
+    .grid-kartu {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ===== BAGIAN KONTAK ===== */
+#kontak {
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+}
+
+#kontak .kontainer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(31, 41, 55, 0.08);
+}
+
+/* Judul dan deskripsi */
+#kontak h2 {
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#kontak h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 4px;
+    margin: 0.8rem auto 1.2rem;
+    background-color: #0d6efd;
+    border-radius: 10px;
+}
+
+#kontak .kontainer > p {
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    color: #6b7280;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Jarak antar kolom form */
+#kontak form p {
+    margin-bottom: 1.25rem;
+}
+
+/* Label */
+#kontak label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-weight: 600;
+}
+
+/* Input dan textarea */
+#kontak input,
+#kontak textarea {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    color: #1f2937;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efek saat kolom dipilih */
+#kontak input:focus,
+#kontak textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+}
+
+#kontak textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Tombol kirim */
+#kontak button {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #f193df;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s,
+                box-shadow 0.2s;
+}
+
+#kontak button:hover {
+    background-color: #f193df;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.22);
+}
+
+#kontak button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+    #kontak {
+        padding: 3rem 1rem;
+    }
+
+    #kontak .kontainer {
+        padding: 1.5rem;
+        border-radius: 14px;
+    }
+
+    #kontak h2 {
+        font-size: 1.65rem;
+    }
+}
