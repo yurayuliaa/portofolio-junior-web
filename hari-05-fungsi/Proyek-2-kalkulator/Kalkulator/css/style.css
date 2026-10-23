@@ -1,0 +1,119 @@
+* { box-sizing: border-box; }
+
+body { 
+  font-family: 'Quicksand', 'Nunito', system-ui, sans-serif; 
+  display: grid; 
+  place-items: center;
+  min-height: 100vh; 
+  margin: 0; 
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe3e6 100%); 
+}
+
+.kalkulator { 
+  width: min(340px, 92vw); 
+  padding: 1.5rem; 
+  background: #ffffff;
+  border: 2px solid #ffccd5;
+  border-radius: 24px; 
+  box-shadow: 0 12px 32px rgba(255, 182, 193, 0.35); 
+}
+
+.header-coquette {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d87093;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.layar { 
+  min-height: 4rem; 
+  padding: 0.85rem; 
+  margin-bottom: 1rem; 
+  text-align: right;
+  font-size: 1.85rem; 
+  font-weight: 600;
+  background: #fff5f7; 
+  color: #b56576; 
+  border: 2px solid #ffecf0;
+  border-radius: 16px;
+  overflow-x: auto; 
+  white-space: nowrap; 
+}
+
+.papan { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 0.6rem; 
+}
+
+.papan button { 
+  padding: 0.95rem 0; 
+  font-size: 1.15rem; 
+  font-weight: 600;
+  border: 2px solid transparent; 
+  border-radius: 14px;
+  background: #fff0f3; 
+  color: #7d4f50;
+  cursor: pointer; 
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.2);
+}
+
+.papan button:hover { 
+  background: #ffccd5; 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 182, 193, 0.4);
+}
+
+.papan button:active {
+  transform: translateY(0);
+}
+
+.papan button:focus-visible { 
+  outline: 3px solid #ff8fa3; 
+  outline-offset: 2px; 
+}
+
+/* Tombol C (Hapus) */
+.papan [data-aksi="hapus"] {
+  background: #ffb3c1;
+  color: #ffffff;
+}
+.papan [data-aksi="hapus"]:hover {
+  background: #ff8fa3;
+}
+
+/* Tombol Operator */
+.papan [data-operator] {
+  background: #ffe3e6;
+  color: #b56576;
+}
+
+/* Tombol Sama Dengan */
+.papan .sama { 
+  grid-row: span 2; 
+  background: linear-gradient(135deg, #ff8fa3 0%, #ff758c 100%); 
+  color: #fff; 
+  border-radius: 14px;
+}
+.papan .sama:hover { 
+  background: linear-gradient(135deg, #ff758c 0%, #ff5c77 100%); 
+}
+
+.papan .nol { 
+  grid-column: span 2; 
+}
+
+.riwayat { 
+  margin: 1rem 0 0; 
+  padding-left: 1.25rem; 
+  font-size: 0.85rem; 
+  color: #9b7880; 
+  overflow-wrap: anywhere; 
+}
+
+.riwayat:empty { 
+  display: none; 
+}
