@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 3 - Counter dan To-Do</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
+    li { margin: 0.4rem 0; }
+    li.selesai span { text-decoration: line-through; color: #6b7280; }
+    #pesan-tugas:not(:empty)::before { content: "⚠ "; }
+    #pesan-tugas { color: #b91c1c; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+  <h1>Counter</h1>
+  <h2 id="angka">0</h2>
+  <button id="tambah">Tambah</button>
+  <button id="kurang">Kurang</button>
+  <button id="reset">Reset</button>
+
+  <h1>Daftar Tugas</h1>
+  <form id="form-tugas">
+    <label for="teks-tugas">Tugas baru</label>
+    <input id="teks-tugas" maxlength="80" required aria-describedby="pesan-tugas">
+    <button type="submit">Tambah</button>
+    <div id="pesan-tugas" aria-live="polite"></div>
+  </form>
+  <p id="sisa">Tugas tersisa: 0</p>
+  <ul id="daftar-tugas"></ul>
+
+  <script>
+    const MAKS_KARAKTER = 80;
+
+    // ----- Counter -----
+    let hitung = 0;
+    const angka = document.getElementById('angka');
+    const perbarui = () => { angka.textContent = hitung; };
+
+    document.getElementById('tambah').addEventListener('click', () => { hitung++; perbarui(); });
+    document.getElementById('kurang').addEventListener('click', () => { hitung--; perbarui(); });
+    document.getElementById('reset').addEventListener('click', () => { hitung = 0; perbarui(); });
+
+    // ----- To-do -----
+    const form = document.getElementById('form-tugas');
+    const inputTugas = document.getElementById('teks-tugas');
+    const pesan = document.getElementById('pesan-tugas');
+    const daftar = document.getElementById('daftar-tugas');
+    const sisa = document.getElementById('sisa');
+
+    /** Menghitung dan menampilkan jumlah tugas yang belum selesai. */
+    function perbaruiSisa() {
+      const jumlah = daftar.querySelectorAll('li:not(.selesai)').length;
+      sisa.textContent = `Tugas tersisa: ${jumlah}`;
+    }
+
+    /**
+     * Membuat elemen <li> untuk satu tugas (checkbox, teks, tombol hapus).
+     * @param {string} teks - Isi tugas.
+     * @returns {HTMLLIElement} Elemen daftar.
+     */
+    function buatItem(teks) {
+      const item = document.createElement('li');
+
+      const cek = document.createElement('input');
+      cek.type = 'checkbox';
+      cek.setAttribute('aria-label', `Tandai selesai: ${teks}`);
+      cek.addEventListener('change', () => {
+        item.classList.toggle('selesai', cek.checked);
+        perbaruiSisa();
+      });
+
+      const label = document.createElement('span');
+      label.textContent = ` ${teks} `;   // textContent: aman dari XSS
+
+      const hapus = document.createElement('button');
+      hapus.type = 'button';
+      hapus.textContent = 'Hapus';
+      hapus.addEventListener('click', () => { item.remove(); perbaruiSisa(); });
+
+      item.append(cek, label, hapus);
+      return item;
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const teks = inputTugas.value.trim();
+      if (teks === '') { pesan.textContent = 'Tugas tidak boleh kosong.'; return; }
+      if (teks.length > MAKS_KARAKTER) {
+        pesan.textContent = `Maksimal ${MAKS_KARAKTER} karakter.`;
+        return;
+      }
+      pesan.textContent = '';
+      daftar.append(buatItem(teks));
+      perbaruiSisa();
+      form.reset();
+      inputTugas.focus();
+    });
+  </script>
+</body>
+</html>

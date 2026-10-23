@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 4 - Modul ES</title>
+</head>
+<body>
+  <h1>Statistik Nilai</h1>
+  <form id="form-nilai">
+    <label for="nilai">Nilai (pisahkan dengan koma)</label>
+    <input id="nilai" placeholder="80, 90, 75" aria-describedby="pesan">
+    <button type="submit">Hitung</button>
+    <div id="pesan" aria-live="polite"></div>
+  </form>
+  <ul>
+    <li>Rata-rata: <span id="rata">-</span></li>
+    <li>Tertinggi: <span id="tinggi">-</span></li>
+    <li>Terendah: <span id="rendah">-</span></li>
+  </ul>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
