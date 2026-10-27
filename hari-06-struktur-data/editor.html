@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor Catatan - Undo/Redo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+    textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .5rem; }
+    button { padding: .4rem .9rem; font-size: 1rem; cursor: pointer; }
+    button:disabled { cursor: not-allowed; }
+    button:focus-visible, textarea:focus-visible { outline: 3px solid #1a73e8; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <h1>Editor Catatan</h1>
+  <textarea id='editor' rows='6' cols='50'></textarea>
+  <p>
+    <button id='undo' disabled>Undo</button>
+    <button id='redo' disabled>Redo</button>
+    <span id='info'></span>
+  </p>
+  <script type='module' src='js/editor.js'></script>
+</body>
+</html>

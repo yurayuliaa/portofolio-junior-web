@@ -1,0 +1,13 @@
+{
+  "name": "hari-06-struktur-data",
+  "version": "1.0.0",
+  "description": "Hari 6 - Struktur Data I: Array, Objek, Stack, dan Queue",
+  "type": "module",
+  "scripts": {
+    "lab1": "node lab1.js",
+    "lab2": "node lab2.js",
+    "lab3": "node lab3.js",
+    "lab4": "node lab4.js",
+    "lab5": "node lab5.js"
+  }
+}

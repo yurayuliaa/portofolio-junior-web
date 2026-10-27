@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antrean Loket</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 560px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    #dipanggil { font-size: 3rem; display: block; }
+    button { padding: .5rem 1rem; margin: 0 .25rem .5rem 0; font-size: 1rem; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #1a73e8; outline-offset: 2px; }
+    .riwayat { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Antrean Loket</h1>
+  <p>Sedang dipanggil: <strong id='dipanggil'>-</strong></p>
+  <p>Menunggu: <span id='jumlah'>0</span></p>
+  <button id='ambil'>Ambil Nomor</button>
+  <button id='panggil'>Panggil Berikutnya</button>
+  <button id='reset'>Reset</button>
+  <h2>Daftar menunggu</h2>
+  <ol id='daftar'></ol>
+  <h2>5 nomor terakhir dipanggil</h2>
+  <p class='riwayat' id='riwayat'>Belum ada.</p>
+  <script type='module' src='js/antrian.js'></script>
+</body>
+</html>
