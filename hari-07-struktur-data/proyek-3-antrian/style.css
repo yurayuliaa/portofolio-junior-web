@@ -1,0 +1,123 @@
+:root {
+  --latar: #f2f6f7;
+  --permukaan: #ffffff;
+  --teks: #14272e;
+  --redup: #4d636b;
+  --aksen: #0b6b73;
+  --aksen-teks: #ffffff;
+  --bahaya: #a8281f;
+  --garis: #c9d6da;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+  color: var(--teks);
+  background: var(--latar);
+}
+
+header,
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0;
+}
+
+header p {
+  margin-top: 0.25rem;
+  color: var(--redup);
+}
+
+main {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+}
+
+section {
+  padding: 1.25rem;
+  background: var(--permukaan);
+  border: 1px solid var(--garis);
+  border-radius: 0.5rem;
+}
+
+.keterangan {
+  margin-bottom: 0;
+  color: var(--redup);
+}
+
+.nomor-besar {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--aksen);
+}
+
+.aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+button {
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  color: var(--aksen-teks);
+  background: var(--aksen);
+  border: 0;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+button.bahaya {
+  background: var(--bahaya);
+}
+
+button:disabled {
+  color: var(--redup);
+  background: var(--garis);
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #e3a008;
+  outline-offset: 2px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font: inherit;
+  border: 1px solid var(--garis);
+  border-radius: 0.375rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.pesan {
+  min-height: 1.5rem;
+  color: var(--redup);
+}
