@@ -1,0 +1,57 @@
+1.Penentu bilangan ganjil/genap dan positif/negatif/nol
+let nilai, status1, status2
+START
+if (nilai % 2 == 0) {status1="genap"} else {status2="ganjil"}
+cetak(status1)
+if (nilai>0) {status1="positif"} else {status2="negatif"} else {status3="nol"}
+cetak(status2)
+END
+
+2.	Tarif parkir: 2 jam pertama Rp3.000, tiap jam berikutnya Rp2.000, maksimum Rp15.000 per hari. 
+SSTART
+input durasi_jam
+
+// 1. Menghitung jumlah hari utuh dan sisa jam menggunakan pembagian bulat dan sisa bagi (modulus)
+total_hari = floor(durasi_jam / 24)
+sisa_jam = durasi_jam % 24
+
+// 2. Menghitung tarif untuk sisa jam pada hari terakhir
+if sisa_jam <= 2:
+    biaya_sisa_jam = 3000
+else:
+    biaya_sisa_jam = 3000 + (sisa_jam - 2) * 2000
+
+// 3. Terapkan batas maksimum Rp15.000 per hari untuk sisa jam
+if biaya_sisa_jam > 15000:
+    biaya_sisa_jam = 15000
+
+// 4. Hitung total biaya keseluruhan (hari utuh x Rp15.000 + biaya sisa jam)
+total_biaya = (total_hari * 15000) + biaya_sisa_jam
+
+OUTPUT total_biaya
+STOP
+
+
+
+3.	Kalkulator sederhana dengan switch (+, -, *, /) dan penanganan pembagian dengan nol. 
+START
+let nilai1, nilai2, pilih, hasil
+1.output("menu pilihan (+, -, *, /)")
+2.input (nilai1,nilai2,pilih)
+3.switch(pilih)
+    case 1 : hasil=nilai1+nilai2
+    case 2 : hasil=nilai1-nilai2
+    case 3 : hasil=nilai1*nilai2
+    case 4 : if(nilai2===0){hasil="tidak terdefinisi"}else{hasil=nilai1/nilai2}
+4. cetak(hasil)
+END
+
+4.	Penentu kategori BMI (berat / (tinggi * tinggi)): kurang (di bawah 18,5), normal (18,5-24,9), lebih (25-29,9), obesitas (30 ke atas). 
+START
+1.Input (berat,tinggi)
+2.BMI = berat / (tinggi * tinggi)
+3. if (BMI <18,5){status"kurang}else
+    if(BMI<=24,9){status="normal"}else
+        if(BMI<=29,9){status="lebih"}else{status="obesitas"}
+END
+
