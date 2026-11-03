@@ -1,33 +1,42 @@
+<?php
+declare(strict_types=1);
+$pesanFlash = ambilFlash();
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pendaftaran Pelatihan</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 20px; background-color: #f8f9fa; }
-        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1, h2 { color: #333; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 10px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .btn { display: inline-block; padding: 8px 12px; background: #007bff; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
-        .btn-danger { background: #dc3545; }
-        .btn-warning { background: #ffc107; color: #000; }
-        .alert { padding: 10px; margin-bottom: 15px; border-radius: 4px; }
-        .alert-success { background: #d4edda; color: #155724; }
-        .alert-danger { background: #f8d7da; color: #721c24; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; box-sizing: border-box; }
-        .error-text { color: #dc3545; font-size: 0.875rem; }
-        .pagination { margin-top: 15px; text-align: center; }
-        .pagination a { padding: 5px 10px; margin: 0 2px; border: 1px solid #ccc; text-decoration: none; }
-        .pagination strong { padding: 5px 10px; margin: 0 2px; background: #007bff; color: white; border: 1px solid #007bff; }
-    </style>
+    <title><?= e($judul ?? 'Pendaftaran Pelatihan') ?></title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- DataTables Bootstrap 5 CSS -->
+    <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-    <h1>Sistem Pendaftaran Pelatihan</h1>
-    <hr>
+<body class="bg-light">
+
+    <!-- Navbar Responsif -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.php">Pendaftaran Pelatihan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Daftar Pendaftar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tambah.php">+ Tambah Data</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <!-- Container Pesan Flash (Dibaca JavaScript SweetAlert2) -->
+        <div id="flash" class="d-none" data-pesan="<?= e($pesanFlash ?? '') ?>"></div>
