@@ -158,3 +158,23 @@ function deletePendaftar(PDO $pdo, int $id): bool
     $stmt = $pdo->prepare('DELETE FROM pendaftar WHERE id = :id');
     return $stmt->execute(['id' => $id]);
 }
+
+function ambilSemuaPendaftar(PDO $pdo): array
+{
+    $sql = 'SELECT p.id, p.nama, p.email, p.no_hp, p.tgl_daftar, k.nama_kelas
+            FROM pendaftar p JOIN kelas k ON k.id = p.kelas_id
+            ORDER BY p.id DESC';
+    return $pdo->query($sql)->fetchAll();
+}
+
+function ambilBuktiPendaftar(PDO $pdo, int $id): ?array
+{
+    $sql = 'SELECT p.id, p.nama, p.email, p.no_hp, p.alamat, p.tgl_daftar, k.nama_kelas
+            FROM pendaftar p 
+            JOIN kelas k ON k.id = p.kelas_id
+            WHERE p.id = :id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $baris = $stmt->fetch();
+    return $baris === false ? null : $baris;
+}
