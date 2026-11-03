@@ -1,14 +1,18 @@
-# Product Backlog & User Stories
+# Product Backlog & User Stories (Sprint 0 - Sprint 2)
 
-| ID | User Story | Prioritas |
-|---|---|---|
-| US-01 | Sebagai Peserta, saya ingin mendaftar pelatihan agar data saya tercatat di sistem. | High |
-| US-02 | Sebagai Admin, saya ingin melihat daftar seluruh pendaftar agar bisa memantau kuota. | High |
-| US-03 | Sebagai Admin, saya ingin mengubah data pendaftar jika ada kesalahan input. | Medium |
-| US-04 | Sebagai Admin, saya ingin menghapus data pendaftar yang membatalkan pendaftaran. | Medium |
-| US-05 | Sebagai Admin, saya ingin mencari nama/email pendaftar agar pencarian data lebih cepat. | Medium |
-| US-06 | Sebagai Admin, saya ingin melihat data secara terpaginasi agar tampilan rapi. | Low |
-| US-07 | Sebagai Admin, saya ingin melihat jumlah pendaftar per kelas pelatihan. | Low |
-| US-08 | Sebagai Peserta, saya ingin mendapat pesan error yang jelas jika memasukkan data salah. | High |
-| US-09 | Sebagai Admin, saya ingin sistem mencegah duplikasi email pendaftaran. | High |
-| US-10 | Sebagai Sistem, saya ingin mencegah serangan SQL Injection dan XSS. | High |
+---
+
+## Tabel Backlog Terprioritas
+
+| ID Story | Sebagai... | Saya ingin... | Agar... | Kriteria Penerimaan (Acceptance Criteria) | Prioritas | Target Sprint |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **US-01** | Peserta | Mengisi formulir pendaftaran pelatihan secara daring | Data saya tercatat sebagai calon peserta resmi | Form menerima nama, email, no HP, alamat, & kelas. Validasi mencegah input kosong. | Wajib (High) | Sprint 0 |
+| **US-02** | Admin | Melihat daftar seluruh pendaftar beserta kelas yang dipilih | Dapat memantau perkembangan jumlah peserta pelatihan | Menampilkan tabel nama, email, no HP, & nama kelas menggunakan `JOIN`. | Wajib (High) | Sprint 0 |
+| **US-03** | Admin | Melakukan pencarian data pendaftar berdasarkan nama/email | Dapat menemukan data peserta tertentu dengan cepat | Input pencarian memfilter hasil tabel secara langsung. | Wajib (High) | Sprint 0 |
+| **US-04** | Admin | Melihat data pendaftar dalam bentuk paginasi | Tampilan tabel tetap rapi dan cepat diakses | Halaman membatasi 10 baris per halaman dengan navigasi nomor halaman. | Sedang (Medium) | Sprint 0 |
+| **US-05** | Admin | Mengubah data pendaftar yang salah input | Informasi pendaftar selalu akurat | Form `ubah.php` terisi data lama dan dapat disimpan kembali ke DB. | Wajib (High) | Sprint 0 |
+| **US-06** | Admin | Menghapus data pendaftar yang membatalkan pendaftaran | Data pendaftar yang tidak aktif terkonfirmasi terhapus | Tombol hapus menggunakan `POST` + Token CSRF dan konfirmasi dialog. | Wajib (High) | Sprint 0 |
+| **US-07** | Peserta | Mendapatkan pesan error validasi yang jelas saat salah isi form | Tahu bagian form mana yang harus diperbaiki | Pesan error tampil di bawah masing-masing input field yang bermasalah. | Wajib (High) | Sprint 0 |
+| **US-08** | Peserta | Mencetak bukti pendaftaran dalam format PDF | Memiliki dokumen fisik/digital resmi pendaftaran | Tersedia tombol cetak PDF yang menghasilkan file slip pendaftaran. | Wajib (High) | Sprint 1 |
+| **US-09** | Admin | Memasuki halaman manajemen menggunakan autentikasi akun | Data pendaftaran aman dari akses publik tak berwenang | Sistem menyediakan form login admin dengan `password_hash` & session. | Wajib (High) | Sprint 2 |
+| **US-10** | Sistem | Mencegah pendaftaran jika kuota kelas sudah penuh | Kapasitas kelas tidak melebihi batas maksimal | Pilihan kelas otomatis *disabled* atau ditolak jika kuota = 0. | Sedang (Medium) | Sprint 2 |
