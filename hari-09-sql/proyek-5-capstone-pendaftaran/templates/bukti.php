@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+    <?php
+/**
+ * @var string|int $noBukti
+ * @var array $data
+ */
+?>
 <head>
     <meta charset="UTF-8">
     <title>Bukti Pendaftaran</title>

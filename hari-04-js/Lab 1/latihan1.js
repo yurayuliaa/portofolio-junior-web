@@ -1,29 +1,40 @@
-// let nama = "Yulia Rahma Qatrunnada Qurratuain";
-// let umur = 20;
-// let tinggi_badan = 150;
-// let status_aktif = true;
+//deklarasi variabel
+ 
+let nama = "AAA";
+let umur = 20;
+let tinggiBadan = 1.7;
+let statusAktif = true;
+console.log(nama, umur, tinggiBadan, statusAktif);
+console.log(`Halo, ${nama}! Umur ${umur} tahun.`);
+console.log(`Tinggi badan: ${tinggiBadan} m, Status aktif: ${statusAktif}`);
 
-// console.log(`halo, ${nama}, umur saya ${umur}, how tall aku ${tinggi_badan}, status saya ${status_aktif}`);
+//cek tipe data
 
-// console.log (typeof('5' + 3));
-// console.log (typeof('5' * 3));
-// console.log (typeof(0.1+0.2));
-// console.log (typeof(Number('abc')));
-// console.log (typeof(10/3));
-// console.log (typeof(10%3));
-// console.log (typeof(2**10));
-// */
-// //Program Menghitung luas dan Keliling Lingkaran
-// let jari_jari =10;
-// let Luasligkaran = Math.PI * jari_jari**2;
-// console.log(`Luas lingkaran dengan jari-jari ${jari_jari} adalah ${Luaslingkaran}`);
-// let KelilingLingkaran = 2 * Math.PI * jari_jari;
-// console.log(`Keliling Lingkaran dengan jari-jari ${jari_jari} adalah ${KelilingLingkaran}`);
-// //Program Konversi Suhu dari Celsius ke Fahrenheit
-// let SuhuC = 100;
-// let SuhuF = (SuhuC * 9/5) + 32; 
-// console.log(`Suhu ${SuhuC} derajat Celsius sama dengan ${SuhuF} derajat Fahrenheit`);
-// */
+console.log('5' + 3); 
+console.log(0.1 + 0.2);
+console.log(Number('abc'));
+console.log(10 / 3);
+console.log(10 % 3);
+console.log(2 ** 5); 
 
+console.log(typeof('5' + 3)); 
+console.log(typeof(0.1 + 0.2));
+console.log(typeof(Number('abc')));
+console.log(typeof(10 / 3));
+console.log(typeof(10 % 3));
+console.log(typeof(2 ** 10)); 
 
+//Program menghitung luas dan keliling lingkaran
 
+let jari = 10;
+let luasLingkaran = Math.PI * jari ** 2;
+console.log(`Luas lingkaran dengan jari-jari ${jari} adalah ${luasLingkaran}`);
+let KelilingLingkaran = 2 * Math.PI * jari;
+console.log(`Keliling lingkaran dengan jari-jari ${jari} adalah ${KelilingLingkaran}`);
+//Program konversi suhu dari Celcius ke Fahrenheit
+let suhuC = 100;
+let suhuF = (suhuC * 9/5) + 32;
+console.log(`${suhuC} derajat Celcius = ${suhuF} derajat Fahrenheit`);
+//Program menghitung detik dalam satu hari
+let detikPerHari = 24 * 60 * 60;
+console.log(`Jumlah detik dalam satu hari adalah ${detikPerHari} detik`);

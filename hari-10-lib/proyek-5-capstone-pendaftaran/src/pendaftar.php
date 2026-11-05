@@ -67,6 +67,11 @@ function getAllKelas(PDO $pdo): array
     return $stmt->fetchAll();
 }
 
+function daftarKelas(PDO $pdo): array
+{
+    return getAllKelas($pdo);
+}
+
 // 5. Validasi input form pendaftar
 function validatePendaftar(PDO $pdo, array $data, ?int $currentId = null): array
 {
